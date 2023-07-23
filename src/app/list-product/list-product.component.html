@@ -1,0 +1,29 @@
+<div class="container my-5">
+  <div class="row">
+   <div class="col-3 my-2"  *ngFor="let item of products">
+      <div class="card p-1" >
+          <img [src]="'http://127.0.0.1:3000/image/'+item.image" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p class="card-title  "> <strong class="text-primary">Name product:</strong> {{item.name}} </p>
+            <p class="card-text"><strong class="text-primary">Price: </strong>{{item.price}} <strong class="text-primary">dt</strong> </p>
+            <p class="card-text"><strong class="text-primary">Quantity: </strong>{{item.quantity}} </p>
+            <p class="card-text"><strong class="text-primary">Discription: </strong>{{item.discription}} </p>
+            <ul class="card-meta list-inline mb-3">
+              <strong class="text-primary">publication date: </strong>
+              <li class="list-inline-item mt-2">
+                <i class="bi bi-calendar"></i>
+                <span> {{item.date | date}} </span>
+          
+            </ul>
+            <div class="d-grid gap-2">
+              <button class="btn btn-warning" [routerLink]="['/update',item._id]" type="button">update</button>
+              <button class="btn btn-danger" (click)="delete(item._id)" type="button">delete</button>
+            </div>
+
+          </div>
+        </div>
+   </div>
+
+      </div>
+</div>
+

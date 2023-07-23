@@ -1,0 +1,63 @@
+
+    <!--Le bouton Ajouter:-->
+    <div class=" my-2">
+      <button type="button" style="background-color: rgb(4, 30, 53); color: white;" class="btn col-12" data-bs-toggle="modal" data-bs-target="#Produit1" id="Add"> <i class="bi bi-plus-circle"></i> Ajouter Produit</button>
+    </div> 
+    <!--Modal Ajouter un nouvel employé-->
+    <div class="modal fade" id="Produit1" tabindex="-1" aria-labelledby="produit" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5"><i class="bi bi-plus-circle"></i>Ajouter un Produit</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <form [formGroup]="formgroup" >
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="Nom" placeholder="Product Name ... " 
+                  formControlName="name"[ngClass]="{'is-valid':validation&&!formgroup.get('name')?.errors,
+                  'is-invalid':validation&&formgroup.get('name')?.errors}" >
+                  <label for="Nom" class="form-label">Name :</label>
+                    <div  class="invalid-feedback "*ngIf="validation&&formgroup.get('name')?.hasError('required')">
+                      Please enter the name of the product.
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                  <textarea class="form-control " id="Description"  placeholder="Product Description ..." rows="2" 
+                   formControlName="discription"[ngClass]="{'is-valid':validation&&!formgroup.get('discription')?.errors,
+                  'is-invalid':validation&&formgroup.get('discription')?.errors}" ></textarea>
+                  <label for="Description" class="form-label">Description :</label>
+                  <div  class="invalid-feedback "*ngIf="validation&&formgroup.get('discription')?.hasError('required')">
+                    Please enter the discription
+                  </div>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="number" class="form-control" id="Price" placeholder="Product Price ..." 
+                  formControlName="price"[ngClass]="{'is-valid':validation&&!formgroup.get('price')?.errors,
+                  'is-invalid':validation&&formgroup.get('price')?.errors}" >
+                  <label for="Price" class="form-label">Price :</label>
+                  <div  class="invalid-feedback "*ngIf="validation&&formgroup.get('price')?.hasError('required')">
+                    Please enter the price.
+                  </div>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="number" class="form-control" id="Quantité" placeholder="Product Quantité ... "
+                  formControlName="quantity"[ngClass]="{'is-valid':validation&&!formgroup.get('quantity')?.errors,
+                  'is-invalid':validation&&formgroup.get('quantity')?.errors}" >
+                  <label for="Quantité" class="form-label">Quantité :</label>
+                  <div  class="invalid-feedback "*ngIf="validation&&formgroup.get('quantity')?.hasError('required')">
+                    Please enter the quantity.
+                  </div>
+                 
+                </div>
+                <input type="file" placeholder="url image" (change)="select($event)" class="form-control">
+              </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
+            <button type="button" class="btn btn-success" (click)="add()" >Sauvegarder</button>
+          </div>
+        </div>  
+      </div>
+    </div>
+
