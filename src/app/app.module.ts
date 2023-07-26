@@ -14,6 +14,12 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { UpdatelistComponent } from './updatelist/updatelist.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MoneyPipe } from './pipes/money.pipe';
+import { SearchPipe } from './pipes/search.pipe';
+import { QuantityPipe } from './pipes/quantity.pipe';
+import { NamePipe } from './pipes/name.pipe';
+import { DescriptionPipe } from './pipes/description.pipe';
+import { DatePipe } from './pipes/date.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +32,13 @@ import { HttpClientModule } from '@angular/common/http';
     AddProductComponent,
     HomeComponent,
     NotFoundComponent,
-    UpdatelistComponent
+    UpdatelistComponent,
+    MoneyPipe,
+    SearchPipe,
+    QuantityPipe,
+    NamePipe,
+    DescriptionPipe,
+    DatePipe
   ],
   imports: [
     BrowserModule,

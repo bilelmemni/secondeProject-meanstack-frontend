@@ -1,6 +1,30 @@
+
 <div class="container">
-    <div class="text-center mt-3 " >
-        <img src="assets/p1.jpg" class="w-50" alt="">
+    <div class="row">
+      <div class="input-group rounded mt-5">
+        <button class="btn btn-success me-2 col-3" routerLink="/addProduct">Add Produit</button>
+        <input type="search" class="form-control rounded" placeholder="Search Product by Name" [(ngModel)]="Searchtext" aria-label="Search" aria-describedby="search-addon" >
+      </div>
     </div>
-    
-</div>
+    <hr>
+    <div class="row" >
+      <div class="col-4" *ngFor="let item of products | search:Searchtext">
+        <div class="card mt-3 ms-2">
+          <div class="card-body">
+            <img [src]="'http://127.0.0.1:3000/image/'+item.image" class="card-img-top" alt="...">
+            <span class="badge text-bg-primary">{{item.name | uppercase | name}}</span><br>
+            <span class="badge text-bg-danger">{{item.discription | description}}</span><br>
+            <span class="badge text-bg-dark">{{item.price | number: '2.1' | money}}</span><br>
+            <span class="badge text-bg-success">{{item.quantity |number: '2.1' | quantity}}</span>
+            <ul class="card-meta list-inline my-3">
+              <li class="list-inline-item mt-2 ">
+                <i class="bi bi-calendar"></i>
+                <span > {{item.date | date|datee}} </span>
+          
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

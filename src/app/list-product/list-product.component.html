@@ -4,7 +4,7 @@
       <div class="card p-1" >
           <img [src]="'http://127.0.0.1:3000/image/'+item.image" class="card-img-top" alt="...">
           <div class="card-body">
-            <p class="card-title  "> <strong class="text-primary">Name product:</strong> {{item.name}} </p>
+            <p class="card-title  "> <strong class="text-primary">Name product:</strong> {{item.name | uppercase}} </p>
             <p class="card-text"><strong class="text-primary">Price: </strong>{{item.price}} <strong class="text-primary">dt</strong> </p>
             <p class="card-text"><strong class="text-primary">Quantity: </strong>{{item.quantity}} </p>
             <p class="card-text"><strong class="text-primary">Discription: </strong>{{item.discription}} </p>
