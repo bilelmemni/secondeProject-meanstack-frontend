@@ -44,6 +44,7 @@
                 min 5 caracter
               </div>
           </div>
+          <input type="file" placeholder="url image" (change)="select($event)" class="form-control">
           <div class="d-grid gap-2">
             <button class="btn btn-success" (click)="add()" type="button" [disabled]="formgroup.invalid">Valide</button>
           </div>

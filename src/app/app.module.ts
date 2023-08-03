@@ -20,6 +20,10 @@ import { QuantityPipe } from './pipes/quantity.pipe';
 import { NamePipe } from './pipes/name.pipe';
 import { DescriptionPipe } from './pipes/description.pipe';
 import { DatePipe } from './pipes/date.pipe';
+import { AuthorComponent } from './author/author.component';
+import { DetailsComponent } from './details/details.component';
+import { PanierComponent } from './panier/panier.component';
+import { CartpageComponent } from './cartpage/cartpage.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,11 @@ import { DatePipe } from './pipes/date.pipe';
     QuantityPipe,
     NamePipe,
     DescriptionPipe,
-    DatePipe
+    DatePipe,
+    AuthorComponent,
+    DetailsComponent,
+    PanierComponent,
+    CartpageComponent
   ],
   imports: [
     BrowserModule,

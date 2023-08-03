@@ -25,4 +25,15 @@ export class DataService {
   getproducetbyid(id:any){
     return this.http.get(this.url+'api/produit/'+id)
    }
+   getProductsbycategory(id:any){
+    return this.http.get(this.url+'api/getProductsbycategory/'+id)
+   }
+
+   addToCart(product: any) {
+    return this.http.post(this.url+'api/cart',product);
+  }
+
+  getCartItems() {
+    return this.http.get(this.url+'api/cart');
+  }
 }

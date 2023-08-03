@@ -18,7 +18,7 @@ export class UpdatelistComponent implements OnInit {
     this.id=this.act.snapshot.paramMap.get('id')  //na9raw id mte3 kol product
     this.data.getproducetbyid(this.id).subscribe(
       res=>{
-        console.log(res)
+       
         this.formgroup.patchValue(res)
         
       },err=>{
@@ -28,6 +28,7 @@ export class UpdatelistComponent implements OnInit {
   }
   validation=false
   formgroup:FormGroup=new FormGroup({
+    categorie:new FormControl('',[Validators.required]),
    name:new FormControl('',[Validators.required]),
    price:new FormControl('',[Validators.required,]),
    discription:new FormControl('',[Validators.required]),
@@ -43,6 +44,7 @@ export class UpdatelistComponent implements OnInit {
 
   update(){
     let fd=new FormData()
+    fd.append('categorie',this.formgroup.value.categorie)
     fd.append('name',this.formgroup.value.name)
     fd.append('price',this.formgroup.value.price.toString())
     fd.append('discription',this.formgroup.value.discription)

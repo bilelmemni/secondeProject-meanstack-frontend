@@ -13,6 +13,17 @@
             </div>
             <div class="modal-body">
                 <form [formGroup]="formgroup" >
+                  <div class="my-3">
+                    <label  for="p1" class="my-2">Categories</label>
+                    <select class="form-control" formControlName="categorie" >
+                      <option value="telephone & tablette">telephone & tablette</option>
+                      <option value="maison & bureau">maison & bureau</option>
+                      <option value="sante & beaute">sante & beaute</option>
+                      <option value="electronics">electronics</option>
+  
+                    </select>
+  
+                  </div>
                   <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="Nom" placeholder="Product Name ... " 
                     formControlName="name"[ngClass]="{'is-valid':validation&&!formgroup.get('name')?.errors,

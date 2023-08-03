@@ -1,0 +1,12 @@
+<div class="container my-5">
+  <div class="row">
+   <div class="col-3 my-2"  *ngFor="let item of products">
+      <div class="card p-1" >
+        <a [routerLink]="['/article',item._id]" ><img [src]="'http://127.0.0.1:3000/image/'+item.image" class="card-img-top" alt="..."></a>
+        <span class="badge text-bg-primary">{{item.name}}</span>
+        </div>
+   </div>
+
+      </div>
+</div>
+

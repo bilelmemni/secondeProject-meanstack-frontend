@@ -12,9 +12,15 @@
         <li class="nav-item"*ngIf="auth.isLogedIn()" >
           <a class="nav-link active" aria-current="page" [routerLink]="['/listProduct']"><i class="fa-solid fa-list"></i> List Product</a>
         </li>
+        <li class="nav-item" >
+          <a class="nav-link active" aria-current="page" [routerLink]="['/panier']"><i class="fa-solid fa-cart-shopping"></i>Panier</a>
+        </li>
         
       </ul>
       <ul class="navbar-nav me-5 mb-2 mb-lg-0 ">
+          <li class="nav-item"*ngIf="auth.isLogedIn()">
+          <a class="nav-link active"   [routerLink]="['/account',auth.getAuthorDataFromToken()._id]"><i class="fas fa-user-plus"></i> My Account</a>
+        </li>
         <li class="nav-item"*ngIf="!auth.isLogedIn()">
           <a class="nav-link active"   routerLink="/register"><i class="fas fa-user-plus"></i> Sign Up</a>
         </li>

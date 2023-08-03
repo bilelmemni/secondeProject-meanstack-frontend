@@ -23,15 +23,26 @@ export class RegistreComponent implements OnInit {
     email:new FormControl("",[Validators.required,Validators.email]),
     password:new FormControl("",[Validators.required,Validators.minLength(5)]),
   })
+
+  image:any;
+  select(e:any){
+    this.image=e.target.files[0]
+    
+  }
 add(){
+  let fd=new FormData()
+  fd.append('firstname',this.formgroup.value.firstname)
+  fd.append('lastname',this.formgroup.value.lastname)
+  fd.append('email',this.formgroup.value.email)
+  fd.append('password',this.formgroup.value.password)
+  fd.append('image',this.image)
 this.validation=true
 if (this.formgroup.invalid) {
   return
 }
-console.log(this.formgroup.value)
-this.servise.addRegister(this.formgroup.value).subscribe(
+this.servise.addRegister(fd).subscribe(
   res=>{
-    console.log(res)
+
     this.router.navigate(['/login'])
   },err=>{
     console.log(err)

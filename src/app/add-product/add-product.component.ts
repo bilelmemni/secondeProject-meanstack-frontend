@@ -16,6 +16,7 @@ export class AddProductComponent implements OnInit {
   }
   validation=false
   formgroup:FormGroup=new FormGroup({
+    categorie:new FormControl('',[Validators.required]),
    name:new FormControl('',[Validators.required]),
    price:new FormControl('',[Validators.required,]),
    discription:new FormControl('',[Validators.required]),
@@ -30,6 +31,7 @@ export class AddProductComponent implements OnInit {
 
   add(){
     let fd=new FormData()
+    fd.append('categorie',this.formgroup.value.categorie)
     fd.append('name',this.formgroup.value.name)
     fd.append('price',this.formgroup.value.price.toString())
     fd.append('discription',this.formgroup.value.discription)

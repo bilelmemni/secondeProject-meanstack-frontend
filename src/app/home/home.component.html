@@ -7,24 +7,25 @@
       </div>
     </div>
     <hr>
+    <div class="my-3 w-25">
+      <select class="form-select" aria-label="Default select example" (change)="filter($event)">
+        <option value="all" >All</option>
+        <option value="{{option.categorie}}" *ngFor="let option of category"> {{option.categorie}} </option>
+      </select>
+
+    </div>
     <div class="row" >
-      <div class="col-4" *ngFor="let item of products | search:Searchtext">
-        <div class="card mt-3 ms-2">
-          <div class="card-body">
-            <img [src]="'http://127.0.0.1:3000/image/'+item.image" class="card-img-top" alt="...">
-            <span class="badge text-bg-primary">{{item.name | name}}</span><br>
-            <span class="badge text-bg-danger">{{item.discription | description}}</span><br>
-            <span class="badge text-bg-dark">{{item.price | number: '2.0' | money}}</span><br>
-            <span class="badge text-bg-success">{{item.quantity |number: '2.0' | quantity}}</span>
-            <ul class="card-meta list-inline my-3">
-              <li class="list-inline-item mt-2 ">
-                <i class="bi bi-calendar"></i>
-                <span > {{item.date | date|datee}} </span>
-          
-            </ul>
-          </div>
+      <div class="col-3 item " *ngFor="let item of products | search:Searchtext">
+        
+        <div class="card p-1 my-2">
+            <a [routerLink]="['/article',item._id]" ><img [src]="'http://127.0.0.1:3000/image/'+item.image" class="card-img-top" alt="...">
+          <br>  <span class="badge text-bg-primary mt-1">{{item.price |money}}</span><br>
+          <span class="badge text-bg-primary">{{item.name}}</span>
+          </a>
         </div>
       </div>
     </div>
   </div>
+
+
   

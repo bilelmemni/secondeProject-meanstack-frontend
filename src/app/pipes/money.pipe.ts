@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class MoneyPipe implements PipeTransform {
 
   transform(value: unknown, ...args: unknown[]): unknown {
-    return  "this is my price : " + value + " DT";
+    return  " Price : " + value + " DT";
   }
 
 }

@@ -25,5 +25,17 @@ export class AuthService {
       return false
     }
   }
+  
+  getauthById(id:any){
+    return this.http.get(this.url+'api/admin/'+id)//,jibou data eli 3ana lkol kima name image...
+  }
+  getAuthorDataFromToken(){
+    let token=localStorage.getItem('token')
+    if (token) {
+      let data = JSON.parse(window.atob(token.split('.')[1]));//ne5dhou data eli 3ana fost token eli kima id
+      return data
+    }
+
+  }
 
 }
